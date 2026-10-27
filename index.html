@@ -253,5 +253,32 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <script src="js/p10.js"></script>
+     <script>
+      const form = document.getElementById("contactForm");
+      const btn = document.getElementById("sendBtn");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault(); // page reload nahi hoga
+        btn.disabled = true;
+        btn.value = "Sending...";
+
+        try {
+          const res = await fetch(form.action, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(Object.fromEntries(new FormData(form))),
+          });
+          const data = await res.json();
+
+          alert(data.message); // success ya error, dono ka message
+          if (data.ok) form.reset();
+        } catch (err) {
+          alert("Server se connect nahi ho paya. Dobara try kijiye.");
+        } finally {
+          btn.disabled = false;
+          btn.value = "Send Message";
+        }
+      });
+    </script>
   </body>
 </html>

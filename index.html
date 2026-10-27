@@ -204,24 +204,37 @@
     <section class="contact" id="contact">
       <h2 class="heading">Contact <span>Me!</span></h2>
 
-      <form action="#">
-        <div class="input-box">
-          <input type="text" placeholder="Full Name " />
-          <input type="email" placeholder="Email Address" />
-        </div>
-        <div class="input-box">
-          <input type="number" placeholder="Mobile Number " />
-          <input type="text" placeholder="Email Subject" />
-        </div>
-        <textarea
-          name=""
-          id=""
-          cols="30"
-          rows="10"
-          placeholder="Your Message"
-        ></textarea>
-        <input type="submit" value="Send Messsage" class="btn" />
-      </form>
+     <form
+      id="contactForm"
+      action="http://localhost:3000/api/contact"
+      method="post"
+    >
+      <div class="input-box">
+        <input name="name" type="text" placeholder="Full Name" required />
+        <input name="email" type="email" placeholder="Email Address" required />
+      </div>
+      <div class="input-box">
+        <input name="phone" type="tel" placeholder="Mobile Number" />
+        <input name="subject" type="text" placeholder="Email Subject" />
+      </div>
+      <textarea
+        name="message"
+        cols="30"
+        rows="10"
+        placeholder="Your Message"
+        required
+      ></textarea>
+
+      <!-- spam trap: khali rehne do -->
+      <input
+        name="hp_trap"
+        style="position: absolute; left: -9999px"
+        tabindex="-1"
+        autocomplete="off"
+      />
+
+      <input type="submit" value="Send Message" class="btn" id="sendBtn" />
+    </form>
     </section>
 
     <!-- footer design -->

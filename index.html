@@ -253,7 +253,7 @@
     <script src="https://unpkg.com/scrollreveal"></script>
 
     <script src="js/p10.js"></script>
-     <script>
+  <script>
       const form = document.getElementById("contactForm");
       const btn = document.getElementById("sendBtn");
 
@@ -273,7 +273,7 @@
           alert(data.message); // success ya error, dono ka message
           if (data.ok) form.reset();
         } catch (err) {
-          alert("Server se connect nahi ho paya. Dobara try kijiye.");
+          alert("Something went wrong. Please try again later.");
         } finally {
           btn.disabled = false;
           btn.value = "Send Message";
